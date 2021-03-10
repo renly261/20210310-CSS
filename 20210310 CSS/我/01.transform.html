@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 
+        三種水平垂直置中方式
+        行內 text align:center line-height:父元素高度
+        
+        transform:translate(x%,y%)
+        
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        */
+
+
+        /* *{} 對全部元素做設定 */
+        * {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        /* 繼承視窗100%高度 */
+        html,
+        body {
+            height: 100%;
+        }
+
+        section {
+            height: 100%;
+
+            /* 彈性盒水平、垂直置中 */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        h1 {
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+
+        /* 奇數 section */
+        section:nth-child(odd) {
+            background: lightskyblue;
+        }
+
+        /* 偶數 section */
+        section:nth-child(even) {
+            background: lightgoldenrodyellow;
+        }
+
+        .dashed {
+            display: inline-block;
+            border: 5px dashed black;
+            width: 200px;
+            height: 200px;
+            position: relative;
+        }
+
+        .box {
+            width: 200px;
+            height: 200px;
+            color: #fff;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+
+        /* 移動 transform: translate(50px, 0);
+        第一個數值為x軸，正往右 負往左
+        第二個數值為y軸，正往下 負往上
+        若使用百分比%，實際移動距離會以你移動的元素寬高尺寸來做計算ex width:200px => 50%=100px
+        後面的transform會蓋掉前面的transform
+        行內元素 inline 不能使用 transform，必須作用在 block inline-block 彈性盒
+        四個裡面只有 transform: translate 無法用 transform-origin: 改變原點
+         */
+        .translate {
+            transform: translate(0, 0);
+
+            /* 也可以設定 x 移動 */
+            /* transform: translateX(50px); */
+
+            /* 也可以設定 y 移動 */
+            /* transform: translateY(50px); */
+        }
+
+        /* scale 縮放，數值是以倍數顯示，負數會呈現倒過來的型態 */
+        .scale {
+            transform: scale(2);
+
+            /* 
+            改變縮放時的原點 ，預設是 center center (50% 50%)
+            數值可以設定 px em % left right top bottom center
+             */
+            transform-origin: right top;
+        }
+
+        /* 單位記得加deg，順時針正 逆時針負 */
+        .rotate {
+            transform: rotate(45deg);
+
+            /* 可以運用在以原點做搖晃的效果 */
+            transform-origin: left top;
+        }
+
+        /* skew 較少用，前三個比較常用 */
+        .skew {
+            /* 第一個數值為 x 的歪斜角，第二個數值為 y 的歪斜角 */
+            transform: skew(45deg, 0deg);
+        }
+
+        /* 多屬性，屬性值之間空格，不須加逗點 */
+        .more {
+            transform: translate(100px) rotate(45deg)
+        }
+
+        /* transform 有一個以上的屬性值，會由左至右逐一套用，順序很重要 */
+        .move1 {
+            width: 200px;
+            height: 200px;
+            background: red;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            /* 順序是左往右看，先移動在旋轉 */
+            transform: translateX(200px) rotate(45deg);
+        }
+
+        .move2 {
+            width: 200px;
+            height: 200px;
+            background: blue;
+
+            position: absolute;
+            top: 0;
+            left: 0;
+
+            /* 先旋轉在移動 */
+            transform: rotate(45deg) translateX(200px);
+        }
+    </style>
+</head>
+
+<body>
+    <section>
+        <h1>Translate(移動)</h1>
+        <div class="dashed">
+            <div class="box translate"></div>
+        </div>
+
+    </section>
+
+    <section>
+        <h1>Scale(縮放)</h1>
+        <div class="dashed">
+            <div class="box scale">Scale(縮放)</div>
+        </div>
+    </section>
+
+    <section>
+        <h1>Rotate(旋轉)</h1>
+        <div class="dashed">
+            <div class="box rotate"></div>
+        </div>
+    </section>
+
+    <section>
+        <h1>Skew(傾斜)</h1>
+        <div class="dashed">
+            <div class="box skew"></div>
+        </div>
+    </section>
+
+    <section>
+        <h1>設定多屬性</h1>
+        <div class="dashed">
+            <div class="box more">設定多屬性</div>
+        </div>
+    </section>
+
+    <section>
+        <h1>屬性值順序</h1>
+        <div class="dashed">
+            <div class="move1"></div>
+            <div class="move2"></div>
+        </div>
+    </section>
+</body>
+
+</html>
