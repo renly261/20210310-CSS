@@ -75,13 +75,13 @@
         }
 
         /* 上邊， 滑鼠滑過去的時候 第一個span要做動作 */
-        a:hover span:nth-child(1) {
+        a span:nth-child(1) {
             top: 0;
             left: 0;
             width: 0;
             height: 1px;
             background: linear-gradient(90deg, #03f40f, #03f40f);
-            animation: a1 0.5s forwards;
+            animation: a1 0.5s forwards infinite;
         }
 
         @keyframes a1 {
@@ -95,13 +95,13 @@
         }
 
         /* 右邊， 滑鼠滑過去的時候 第二個span要做動作 */
-        a:hover span:nth-child(2) {
+        a span:nth-child(2) {
             top: 0;
             right: 0;
             width: 1px;
             height: 0;
             background: linear-gradient(180deg, #03f40f, #03f40f);
-            animation: a2 0.5s forwards;
+            animation: a2 0.5s forwards infinite;
         }
 
         @keyframes a2 {
@@ -115,13 +115,13 @@
         }
 
         /* 下邊，滑鼠滑過去的時候 第三個span要做動作 */
-        a:hover span:nth-child(3) {
+        a span:nth-child(3) {
             right: 0;
             bottom: 0;
             width: 0;
             height: 1px;
             background: linear-gradient(270deg, #03f40f, #03f40f);
-            animation: a1 0.5s forwards;
+            animation: a1 0.5s forwards infinite;
         }
 
         @keyframes a3 {
@@ -135,13 +135,13 @@
         }
 
         /* 左邊， 滑鼠滑過去的時候 第四個span要做動作 */
-        a:hover span:nth-child(4) {
+        a span:nth-child(4) {
             left: 0;
             bottom: 0;
             width: 1px;
             height: 0;
             background: linear-gradient(0deg, #03f40f, #03f40f);
-            animation: a4 0.5s forwards;
+            animation: a4 0.5s forwards infinite;
         }
 
         @keyframes a4 {
